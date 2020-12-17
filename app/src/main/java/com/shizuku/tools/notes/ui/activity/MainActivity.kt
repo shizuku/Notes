@@ -1,11 +1,10 @@
 package com.shizuku.tools.notes.ui.activity
 
-import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
+import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
 import com.shizuku.tools.notes.R
 
 class MainActivity : AppCompatActivity() {
@@ -13,19 +12,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
-
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        when (newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_NO -> {
+                Log.d("activity", "light")
+            }
+            Configuration.UI_MODE_NIGHT_YES -> {
+                Log.d("activity", "dark")
+            }
         }
+        val i = intent
+        finish()
+        startActivity(i)
     }
 }

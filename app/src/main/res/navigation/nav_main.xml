@@ -7,22 +7,27 @@
 
     <fragment
         android:id="@+id/notesListFragment"
-        android:name="com.shizuku.tools.notes.ui.fragment.list.NotesListFragment"
+        android:name="com.shizuku.tools.notes.ui.fragment.list.ListFragment"
         android:label="fragment_notes_list"
-        tools:layout="@layout/fragment_notes_list">
+        tools:layout="@layout/fragment_collection">
         <action
-            android:id="@+id/action_notesListFragment_to_editActivity"
+            android:id="@+id/action_list_to_edit"
             app:destination="@id/editActivity" />
     </fragment>
-    <activity
+
+    <fragment
         android:id="@+id/editActivity"
-        android:name="com.shizuku.tools.notes.ui.activity.EditActivity"
+        android:name="com.shizuku.tools.notes.ui.fragment.edit.EditFragment"
         android:label="activity_edit"
-        tools:layout="@layout/activity_edit">
+        tools:layout="@layout/fragment_edit">
         <argument
             android:name="noteId"
-            android:defaultValue="0"
-            app:argType="integer" />
-    </activity>
+            android:defaultValue="0L"
+            app:argType="long" />
+        <argument
+            android:name="isNew"
+            android:defaultValue="true"
+            app:argType="boolean" />
+    </fragment>
 
 </navigation>

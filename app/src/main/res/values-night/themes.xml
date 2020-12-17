@@ -1,0 +1,69 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorAccent">@color/black</item>
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">@color/black</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="background">@color/black</item>
+
+        <item name="android:textColorSecondary">@android:color/white</item>
+
+        <item name="tabTextColor">@color/gray_1</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+    </style>
+
+    <style name="CardTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:backgroundTint">#111111</item>
+        <item name="cardBackgroundColor">#111111</item>
+    </style>
+
+    <style name="FabTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:backgroundTint">@color/gray_1</item>
+        <item name="android:tint">@color/white</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:background">@color/black</item>
+        <item name="android:tint">@color/white</item>
+    </style>
+
+    <style name="ToolbarTheme.Popup" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="Background" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:background">@color/black</item>
+    </style>
+
+    <style name="TabTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:background">@null</item>
+        <item name="android:backgroundTint">@color/black</item>
+    </style>
+
+    <style name="InputTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">#101010</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="InputBackgroundTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:background">#101010</item>
+    </style>
+
+    <style name="WebTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:background">@color/black</item>
+    </style>
+</resources>

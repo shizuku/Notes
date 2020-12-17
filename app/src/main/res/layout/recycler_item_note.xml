@@ -1,56 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_marginStart="@dimen/recycler_horizontal_margin"
+    android:layout_marginTop="@dimen/recycler_vertical_margin"
+    android:layout_marginEnd="@dimen/recycler_horizontal_margin"
+    android:layout_marginBottom="@dimen/recycler_vertical_margin">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="@dimen/recycler_horizontal_margin"
-        android:layout_marginTop="@dimen/recycler_vertical_margin"
-        android:layout_marginEnd="@dimen/recycler_horizontal_margin"
-        android:layout_marginBottom="@dimen/recycler_vertical_margin"
-        android:orientation="vertical">
+        android:theme="@style/CardTheme"
+        app:cardCornerRadius="@dimen/recycler_card_radius"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/recycler_vertical_margin"
-            android:layout_marginBottom="@dimen/recycler_vertical_margin"
-            android:orientation="horizontal">
+            android:layout_marginHorizontal="@dimen/recycler_horizontal_margin"
+            android:layout_marginVertical="@dimen/recycler_vertical_margin"
+            android:orientation="vertical"
+            android:theme="@style/CardTheme">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/recycler_font_size_describe" />
+
+                <ImageView
+                    android:id="@+id/pin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_pin"
+                    android:src="@drawable/ic_pin" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/summary"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="bottom"
                 android:ellipsize="end"
                 android:gravity="top|start"
-                android:lines="1"
-                android:textColor="#000"
+                android:maxLines="4"
                 android:textSize="@dimen/recycler_font_size_title" />
-
-<!--            <ImageView-->
-<!--                android:id="@+id/star"-->
-<!--                android:src="@drawable/ic_star"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content" />-->
-
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|start"
-            android:layout_marginTop="@dimen/recycler_vertical_margin"
-            android:layout_marginBottom="@dimen/recycler_vertical_margin"
-            android:textSize="@dimen/recycler_font_size_describe" />
-
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

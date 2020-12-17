@@ -3,10 +3,12 @@ package com.shizuku.tools.notes.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shizuku.tools.notes.R
 import com.shizuku.tools.notes.data.entity.Note
+import com.shizuku.tools.notes.utils.TimeUtils
 import java.text.DateFormat
 import java.util.*
 
@@ -21,14 +23,20 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
     class ViewHolder(val v: View) : RecyclerView.ViewHolder(v) {
         lateinit var note: Note
         private val summary: TextView = v.findViewById(R.id.summary)
-        private val time: TextView = v.findViewById(R.id.summary)
+        private val time: TextView = v.findViewById(R.id.time)
+        private val pin: ImageView = v.findViewById(R.id.pin)
         fun bind(item: Note) {
             note = item
             summary.text = item.content
             val t = Calendar.getInstance().apply {
                 timeInMillis = item.time
             }.time
-            time.text = DateFormat.getDateTimeInstance().format(t)
+            time.text = TimeUtils.display(item.time)
+            if (item.pin) {
+                pin.visibility = View.VISIBLE
+            } else {
+                pin.visibility = View.INVISIBLE
+            }
         }
     }
 
@@ -37,12 +45,16 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
             .inflate(R.layout.recycler_item_note, parent, false)
         val holder = ViewHolder(v)
         holder.v.setOnClickListener {
-            onCLickListeners.forEach {
+            onClickListeners.forEach {
                 it.invoke(holder.note)
             }
         }
         holder.v.setOnLongClickListener {
-            true
+            var r = true
+            onLongClickListeners.forEach {
+                r = it.invoke(holder.note) && r
+            }
+            r
         }
         return holder
     }
@@ -53,8 +65,13 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
         holder.bind(list[position])
     }
 
-    private val onCLickListeners = mutableSetOf<(Note) -> Unit>()
+    private val onClickListeners = mutableSetOf<(Note) -> Unit>()
     fun addOnClickListener(listener: (Note) -> Unit) {
-        onCLickListeners.add(listener)
+        onClickListeners.add(listener)
+    }
+
+    private val onLongClickListeners = mutableSetOf<(Note) -> Boolean>()
+    fun addOnLongClickListener(listener: (Note) -> Boolean) {
+        onLongClickListeners.add(listener)
     }
 }

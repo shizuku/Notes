@@ -7,20 +7,26 @@ import com.shizuku.tools.notes.data.entity.NoteWithoutId
 @Dao
 interface NoteDao {
     @Query("SELECT * FROM note")
-    fun getAll(): List<Note>
+    suspend fun getAll(): List<Note>
 
-    @Query("SELECT * FROM note WHERE id=:id")
-    fun getById(id: Long): Note?
+    @Query("SELECT * FROM note WHERE collectionId=:cid")
+    fun getByCollectionId(cid: Long): List<Note>
+
+    @Query("SELECT * FROM note WHERE uid=:uid")
+    suspend fun getById(uid: Long): Note?
 
     @Query("SELECT * FROM note WHERE rowid=:rowid")
-    fun getByRowid(rowid: Long): Note?
+    suspend fun getByRowid(rowid: Long): Note?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(item: Note): Long
+    suspend fun insert(item: Note): Long
 
     @Insert(entity = Note::class)
-    fun insert(item: NoteWithoutId): Long
+    suspend fun insert(item: NoteWithoutId): Long
 
     @Update
-    fun update(note: Note)
+    suspend fun update(note: Note)
+
+    @Delete
+    suspend fun delete(vararg users: Note)
 }

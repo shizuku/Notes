@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">笔记</string>
-    <string name="action_main_settings">设置</string>
+    <string name="app_name">便签</string>
+    <string name="action_create">新建</string>
     <string name="message_empty">空</string>
-    <string name="title_activity_edit">编辑</string>
-    <string name="action_edit_undo">撤销</string>
-    <string name="action_edit_redo">重做</string>
-    <string name="action_edit_share">分享</string>
+    <string name="message_input_hint">写点什么...</string>
+    <string name="description_pin">置顶</string>
+    <string name="collection_all">全部</string>
+    <string name="menu_list_new_collection">新建分类</string>
+    <string name="menu_list_new_note">新建笔记</string>
+    <string name="menu_edit_share">分享</string>
+    <string name="menu_edit_preview">预览</string>
+    <string name="menu_edit_input">编辑</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="dialog_ok">确定</string>
+    <string name="dialog_title_new_collection">新建分类</string>
+    <string name="dialog_new_collection_hint">分类名称</string>
+    <string name="menu_list_delete_collection">删除分类</string>
+    <string name="dialog_delete_collection_title">删除分类</string>
+    <string name="dialog_delete_collection_message">确定要删除“%s”分类吗？</string>
+    <string name="menu_edit_move">移动到</string>
+    <string name="dialog_move_title">移动分类</string>
+    <string name="menu_edit_pin">置顶</string>
+    <string name="menu_edit_unpin">取消置顶</string>
 </resources>

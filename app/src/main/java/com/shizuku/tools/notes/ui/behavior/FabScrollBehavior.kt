@@ -60,4 +60,5 @@ class FabScrollBehavior(context: Context, attributeSet: AttributeSet) :
     private fun animateIn(fab: FloatingActionButton) {
         fab.animate().translationY(0f).setInterpolator(LinearInterpolator()).start()
     }
+
 }

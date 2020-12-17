@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="ic_launcher_background">#3DDC84</color>
+    <color name="purple">#FFBB86FC</color>
+    <color name="blue">#FF6200EE</color>
+    <color name="blue_1">#FF3700B3</color>
+    <color name="teal">#FF03DAC5</color>
+    <color name="teal_1">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="gray_1">#111111</color>
+    <color name="gray_2">#222222</color>
+    <color name="gray_3">#333333</color>
+    <color name="gray_5">#555555</color>
+    <color name="gray_7">#777777</color>
+    <color name="gray_a">#aaaaaa</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gold">#FFFFC107</color>
+    <color name="orange">#FF9800</color>
 </resources>
